@@ -14,7 +14,7 @@ document.getElementById('loadData').addEventListener('click', function() {
 // Gestionnaire d'événement pour la recherche
 document.getElementById('searchForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêcher le rechargement de la page lors de la soumission du formulaire
-    const searchTerm = document.getElementById('searchTerm').value; // Obtenir le terme de recherche
+    const searchTerm = document.getElementById('searchTerm').value; // Avoir de la possibilité de rechercher un terme, puis qu'il soit afficher seul sur le graphique
 
     // Envoyer une requête avec le terme de recherche
     fetch(`/get_data?term=${encodeURIComponent(searchTerm)}`)
@@ -41,10 +41,10 @@ function createChart(data) {
     const poidsDebutant = data.map(v => v.PoidsDebutant);
 
     if (myChart) {
-        myChart.destroy(); // Détruire le graphique précédent si existant
+        myChart.destroy(); // Détruire le graphique précédent si existant, pour revenir aux données de bae
     }
 
-    // Création du nouveau graphique à barres
+    // Création des différents grahiques à barres
     myChart = new Chart(ctx, {
         type: 'bar',
         data: {
