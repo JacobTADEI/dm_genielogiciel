@@ -7,7 +7,7 @@ app = Flask(__name__)
 user_input = 'root'
 # remplacez par votre mot de passe
 password = 'SQLTAL49!'
-dbname = 'DMCSGO4'
+dbname = 'DMCSGO5'
 
 try:
     # on obtient une variable connection de type MySQLConnection avec laquelle on peut intéragir avec le serveur
@@ -175,7 +175,7 @@ def get_db_connection(): #Obliger de créer cette fonction sinon mon "bouton" po
         host='localhost',
         user='root',
         password='SQLTAL49!',
-        database='DMCSGO4'
+        database='DMCSGO5'
     )
     
 
