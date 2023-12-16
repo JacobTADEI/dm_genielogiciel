@@ -2,7 +2,7 @@
 Ce projet à pour but de présenter un Devoir Maison de Master Traitement Automatique des Langues
 
 # Données
-Dans le cadre ce Master nous réalisons un mémoire sur la __Détermination du niveau d'un jouer de ***Counter-Strike : Global Offensive*** par sa maîtrise langagière__. Dans ce mémoire nous nous intéressons au poids des termes spécifiques de ***Counter-Strike : Global Offensive*** et ce pour trois niveaux que nous avons délimiter : débutant, intermédiaire, avancé. Dans ce projet, nous nous intéressons donc au poids de ces termes par niveau. Notre base de données est composé de ces informations
+Dans le cadre ce Master nous réalisons un mémoire sur la __Détermination du niveau d'un jouer de ***Counter-Strike : Global Offensive*** par sa maîtrise langagière__. Dans ce mémoire nous nous intéressons au poids des termes spécifiques de ***Counter-Strike : Global Offensive*** et ce pour trois niveaux que nous avons délimiter : débutant, intermédiaire, avancé. Dans ce projet, nous nous intéressons donc au poids de ces termes par niveau. Notre base de données est composée de ces informations
 
 
 
@@ -24,10 +24,10 @@ ranger dans un dossier "app" comme le veut la norme. Cette API nous permet :
 ## Exercice 3
 Dans la troisième et dernier exercice nous créeons une interface Web avec une visualisation dans le but de visualier nos données. 
 Nous avons la présence d'une graphique, avec, en abscisse nos termes et en ordonnées leur poids. Pour chacun des termes notre graphique possède trois barres verticale qui représentent
-le poids du mots pour chaque niveau. Nous avons un "bouton" qui permet de rechercher un terme spécifique pour avoir les poids de ce terme et seulement ce terme. Nous avons aussi la possibilité de choisir le poids des niveaux que l'on souhaite en barrant le niveau non-désiré dans la légende du graphique. Par exemple si on veut voir les poids intermédiaire et avancé d'un mot, alors clique sur "débutant" pour le supprimer de notre graphique. Ce graphique s'adapte aux requêtes écrites dans l'exercice 2
+le poids du mots pour chaque niveau. Nous avons un "bouton" qui permet de rechercher un terme spécifique pour avoir les poids de ce terme et seulement ce terme. Nous avons aussi la possibilité de choisir le poids des niveaux que l'on souhaite en barrant le niveau non-désiré dans la légende du graphique. Par exemple si on veut voir seulement les poids intermédiaire et avancé d'un mot, alors on clique sur "débutant" pour le supprimer de notre graphique. Ce graphique s'adapte aux requêtes écrites dans l'exercice 2
 
 ## Langage et frameworks
-Dans ce projet, nous utilise le langage __Python__ ainsi que les librairies associées : 
+Dans ce projet, nous utilisons le langage __Python__ ainsi que les librairies associées : 
 * "mysql.connector" pour pouvoir accéder à notre base de données via python"
 * "Requests" pour pouvoir faire des requêtes à notre API
 * "Flask" pour pouvoir créer notre APi ainsi qu'avoir un serveur de développement pour vérifier nos requêtes
