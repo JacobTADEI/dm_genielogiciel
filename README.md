@@ -9,7 +9,6 @@ Dans le cadre ce Master nous réalisons un mémoire sur la __Détermination du n
 ## Exercice 1 
 Dans le premier exercice nous créeons notre base de données avec un script Python. Dans un premier temps nous connectons à MySQL Workbench puis nous crééons notre base de données. 
 Nous créeons ensuite nos différentes tables et y inseront des données. Notre première table se nomme "Vocabulaire" et notre deuxième table se nomme "Poids". La table "Vocabulaire" possède comme
-instance "IdVocabulaire", "Terme", "Défintion", "IdPoids" et notre table "Poids" possède comme instance "IdPoids", "PoidsDébutant", "PoidsIntermédiaire", "PoidsAvancé". Nos tables possèdent toutes les deux
 l'instance "IdPoids" ce qui nous permet de les lier pour accéder à des données.
 
 ## Exercice 2 
