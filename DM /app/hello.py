@@ -25,9 +25,9 @@ except Error as e:
 @app.route('/add_term', methods=['POST'])
 def add_term():
     """
-    The function `add_term()` inserts a new term and its corresponding definition into a database table,
-    along with the weights for different levels of proficiency.
-    :return: a JSON response with a message indicating that the term has been successfully added.
+    La fonction `add_term()` insère un nouveau terme et sa définition correspondante dans une table de base de données,
+    ainsi que les pondérations pour les différents niveaux de compétence.
+    Retour : une réponse JSON avec un message indiquant que le terme a été ajouté avec succès.
     """
     data = request.json
     terme = data['terme']
@@ -54,12 +54,12 @@ def add_term():
 @app.route('/delete_term/<int:id_vocabulaire>', methods=['DELETE'])
 def delete_term(id_vocabulaire):
     """
-    The function `delete_term` deletes a term from the Vocabulaire table in a database, along with its
-    corresponding entry in the Poids table.
+    La fonction `delete_term` supprime un terme de la table Vocabulaire d'une base de données, ainsi que l'entrée correspondante dans la table Poids.
+    l'entrée correspondante dans la table Poids.
     
-    :param id_vocabulaire: The parameter `id_vocabulaire` is the unique identifier of the term that
-    needs to be deleted from the database
-    :return: a JSON response with a message indicating that the term with the given id has been deleted.
+    :param id_vocabulaire : Le paramètre `id_vocabulaire` est l'identifiant unique du terme qui doit être supprimé de la base de données.
+    doit être supprimé de la base de données
+    :return : une réponse JSON avec un message indiquant que le terme avec l'identifiant donné a été supprimé.
     """
 
     with connection.cursor() as cursor:
@@ -79,12 +79,14 @@ def delete_term(id_vocabulaire):
 @app.route('/update_term/<int:id_vocabulaire>', methods=['PUT'])
 def update_term(id_vocabulaire):
     """
-    The function `update_term` updates the definition and weights of a term in the database.
+    La fonction `update_term` met à jour la définition et les poids d'un terme dans la base de données en se basant sur l'identifiant du terme.
+    l'ID du terme fourni.
     
-    :param id_vocabulaire: The parameter "id_vocabulaire" is the identifier of the term in the
-    vocabulary. It is used to specify which term should be updated in the database
-    :return: a JSON response with a message indicating that the term with the given id has been updated.
+    :param id_vocabulaire : Le paramètre "id_vocabulaire" est l'identifiant unique du terme dans la base de données.
+    base de données. Il est utilisé pour identifier le terme spécifique qui doit être mis à jour.
+    :return : une réponse JSON avec un message indiquant que le terme avec l'ID donné a été mis à jour.
     """
+    
     data = request.json
     nouvelle_definition = data.get('definition')
     nouveaux_poids = data.get('poids')  # Un dictionnaire avec poids_avance, poids_intermediaire, poids_debutant
@@ -112,12 +114,12 @@ def update_term(id_vocabulaire):
 @app.route('/vocabulaire_poids', methods=['GET'])
 def get_vocabulaire_poids():
     """
-    The function `get_vocabulaire_poids` retrieves vocabulary data along with their corresponding
-    weights from the database.
-    :return: the results of a SQL query that joins the "Vocabulaire" table with the "Poids" table. The
-    returned results include the columns from the "Vocabulaire" table and the columns "PoidsAvance",
-    "PoidsIntermediaire", and "PoidsDebutant" from the "Poids" table. The results are returned in JSON
-    format
+    La fonction `get_vocabulaire_poids` récupère les données de vocabulaire avec leurs poids
+    poids correspondants de la base de données.
+    return: les résultats d'une requête SQL qui joint la table "Vocabulaire" à la table "Poids". Les résultats
+    résultats retournés comprennent les colonnes de la table "Vocabulaire" et les colonnes "PoidsAvance",
+    "PoidsIntermediaire" et "PoidsDebutant" de la table "Poids". Les résultats sont retournés au format JSON
+    au format JSON
     """
     query = """
     SELECT Vocabulaire.*,Poids.PoidsAvance , Poids.PoidsIntermediaire, Poids.PoidsDebutant
@@ -133,16 +135,16 @@ def get_vocabulaire_poids():
 @app.route('/get_specific_data/<int:id_vocabulaire>', methods=['GET'])
 def get_specific_data(id_vocabulaire):
     """
-    The function `get_specific_data` retrieves specific data from a database based on the given
+    La fonction `get_specific_data` récupère des données spécifiques d'une base de données sur la base de l'élément donné
     `id_vocabulaire`.
     
-    :param id_vocabulaire: The parameter "id_vocabulaire" is the ID of the vocabulary term for which you
-    want to retrieve specific data. It is used in the SQL query to filter the results and retrieve the
-    data for that specific ID
-    :return: The function `get_specific_data` returns a JSON object containing the specific data for the
-    given `id_vocabulaire`. If the data is found, it returns the data as a JSON response. If no data is
-    found for the given ID, it returns a JSON response with a message indicating that no data was found,
-    along with a 404 status code.
+    :param id_vocabulaire : Le paramètre "id_vocabulaire" est l'ID du terme de vocabulaire pour lequel vous
+    pour lequel vous souhaitez obtenir des données spécifiques. Il est utilisé dans la requête SQL pour filtrer les résultats et extraire les données pour cet ID spécifique.
+    données pour cet ID spécifique
+    :return: La fonction `get_specific_data` renvoie un objet JSON contenant les données spécifiques pour l'identifiant `id_vocabab_data` donné.
+    l'identifiant `id_vocabulaire` donné. Si les données sont trouvées, elles sont renvoyées sous forme de réponse JSON. Si aucune donnée n'est
+    Si aucune donnée n'est trouvée pour l'ID donné, il renvoie une réponse JSON avec un message indiquant qu'aucune donnée n'a été trouvée,
+    ainsi qu'un code d'état 404.
     """
     
         
@@ -165,9 +167,9 @@ def get_specific_data(id_vocabulaire):
     
 def get_db_connection(): #Obliger de créer cette fonction sinon mon "bouton" pour rechercher ne fonctionne pas dans mon interface web
     """
-    The function `get_db_connection()` returns a connection object to a MySQL database with the
-    specified host, user, password, and database.
-    :return: a database connection object.
+    La fonction `get_db_connection()` retourne un objet de connexion à une base de données MySQL avec le
+    l'hôte, l'utilisateur, le mot de passe et la base de données spécifiés.
+    :return : un objet de connexion à la base de données.
     """
     return mysql.connector.connect(
         host='localhost',
@@ -180,18 +182,18 @@ def get_db_connection(): #Obliger de créer cette fonction sinon mon "bouton" po
 @app.route('/')
 def index():
     """
-    The function "index" returns the rendered template for the "index.html" file.
-    :return: the result of the `render_template('index.html')` function call.
+    La fonction "index" renvoie le modèle rendu pour le fichier "index.html".
+    :return : le résultat de l'appel à la fonction `render_template('index.html')`.
     """
     return render_template('index.html')
 
 @app.route('/get_data', methods=['GET'])
 def get_data():
     """
-    The `get_data` function retrieves data from a database based on a search term and returns it as
+    La fonction `get_data` récupère les données d'une base de données en fonction d'un terme de recherche et les renvoie au format
     JSON.
-    :return: a JSON response containing the data retrieved from the database. If there is an error, it
-    will return a JSON response with an error message and a status code of 500.
+    Retour : une réponse JSON contenant les données extraites de la base de données. En cas d'erreur, la fonction
+    retournera une réponse JSON avec un message d'erreur et un code d'état de 500.
     """
     term = request.args.get('term', '')  # Obtenir le terme de recherche
 
@@ -219,12 +221,6 @@ def get_data():
         return jsonify(data)
     except Error as e:
         return jsonify({'error': str(e)}), 500
-
-
-
-
-   
-        
 
 
 
